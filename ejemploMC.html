@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+    <title>Ejemplo Geoservicios</title>
+  </head>
+  <body>
+    <h2 style="text-align:center;">MAPA</h2>
+    <div >
+       <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+            laboris nisi ut aliquip ex ea commodo consequat. 
+       </p>
+</div>
+    <div style="text-align:center;" >
+        <div id="map" class="map" style="height:500px; width:950px;display: inline-block;" ></div>
+    </div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Tile({
+            source: new ol.source.TileWMS({
+                  url: 'http://idecor-ws.mapascordoba.gob.ar/geoserver/idecor/parcelas/wms',
+            params: { 'LAYERS':'parcelas','TILED': true},
+            serverType: 'geoserver'
+            })
+        })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-64.181616,-31.402997]),
+          zoom: 17
+        })
+      });
+    </script>
+  </body>
+</html>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/build/ol.js"></script>
+	 target: 'map',
+	 layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Tile({
+            source: new ol.source.TileWMS({
+            url: 'https://idecor-ws.mapascordoba.gob.ar/geoserver/idecor/parcelas/wms',
+            params: { 'LAYERS':'parcelas','TILED': true},
+            serverType: 'geoserver'
+            })
+        })
+		new ol.layer.Tile({
+            source: new ol.source.TileWMS({
+            url: 'https://idecor-ws.mapascordoba.gob.ar/geoserver/idecor/parcelas/wms',
+            params: { 'LAYERS':'parcelas','TILED': true},
+            serverType: 'geoserver'
+            })
+			view: new ol.View({
+          center: ol.proj.fromLonLat([-64.181616,-31.402997]),
+          zoom: 17
+        })
+		
